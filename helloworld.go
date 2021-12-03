@@ -6,7 +6,7 @@ import (
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Hello World from Go in minimal Docker container")
+	fmt.Fprintf(w, "[ %s ] Hello World from Go in minimal Docker container\r\n", currentTime.Format("2006-01-02 15:04:05"))
 }
 
 func main() {
