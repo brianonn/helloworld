@@ -11,13 +11,13 @@ FROM golang:alpine AS builder
 # Git is required for fetching the dependencies.
 RUN apk update && apk add --no-cache git
 
-WORKDIR /tmp
+WORKDIR /tmp/build
 
 COPY . .
 
 # Fetch dependencies.
 # Using go get.
-RUN go get -d -v
+RUN go mod init helloworld && go get -d -v
 
 # Build the binary.
 RUN go build -o /tmp/helloworld

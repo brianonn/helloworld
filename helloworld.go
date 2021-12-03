@@ -3,9 +3,11 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
+	currentTime := time.Now()
 	fmt.Fprintf(w, "[ %s ] Hello World from Go in minimal Docker container\r\n", currentTime.Format("2006-01-02 15:04:05"))
 }
 
