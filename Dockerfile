@@ -1,7 +1,3 @@
-FROM scratch
-CMD ["/helloworld"]
-
-
 ############################
 # STEP 1 build executable binary
 ############################
@@ -20,6 +16,7 @@ COPY . .
 RUN go mod init helloworld && go get -d -v
 
 # Build the binary.
+ENV CGO_ENABLED=0
 RUN go build -o /tmp/helloworld
 
 ############################
